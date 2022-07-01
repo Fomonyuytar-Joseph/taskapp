@@ -7,10 +7,3 @@ export const makeVisible = (option) =>{
     }
 }
 
-export const unVisible =(option)=>{
-
-    return{
-        type:'NOT_VISIBLE',
-        payload:false
-    }
-}

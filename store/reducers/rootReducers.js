@@ -1,17 +1,15 @@
 /* eslint-disable */
 import { combineReducers } from "redux";
 
+const initialstate=false
 
-
-const visibleReducer =( state={value: null } , action )=>{
+const visibleReducer =( state=initialstate , action )=>{
     if(action.type ==='VISIBLE'){
         return action.payload
     }
-     else if(action.type ==='NOT_VISIBLE'){
-        return action.payload
-    }
+     
 
-    return action.payload
+    return state
 
     
 }
