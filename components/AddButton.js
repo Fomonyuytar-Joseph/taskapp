@@ -8,11 +8,11 @@ import { makeVisible ,unVisible } from '../store/actions/rootActions';
 
 import Icon from 'react-native-vector-icons/AntDesign';
 
-const AddButton = () => {
+const AddButton = ({visibility}) => {
   
   return (
     <View>
-      <Modal visible={false} animationType="slide" transparent={true}>
+      <Modal visible={visibility(false)} animationType="slide" transparent={true}>
         <View
           style={{
             borderRadius:20,
@@ -33,7 +33,7 @@ const AddButton = () => {
         </View>
       </Modal>
 
-      <TouchableOpacity onPress={() => setModalVisible(true)}>
+      <TouchableOpacity onPress={() => visibility(true)}>
         <Icon name="pluscircle" size={50} color={'#30B0D9'} />
       </TouchableOpacity>
     </View>
@@ -48,4 +48,4 @@ const mapStateToProps =(state)=>{
   }
 }
 
-export default AddButton;
+export default connect(mapStateToProps ,{makeVisible ,unVisible}) (AddButton);

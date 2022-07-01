@@ -1,9 +1,9 @@
 /* eslint-disable */
-export const makeVisible = (option)=>{
+export const makeVisible = (option) =>{
 
     return {
         type:'VISIBLE',
-        payload:option
+        payload:true
     }
 }
 
@@ -11,6 +11,6 @@ export const unVisible =(option)=>{
 
     return{
         type:'NOT_VISIBLE',
-        payload:option
+        payload:false
     }
 }
