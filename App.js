@@ -11,9 +11,15 @@ import Header from './components/Header';
 import AddButton from './components/AddButton';
 
 import {SafeAreaView,  Text  ,View} from 'react-native';
+import { Provider } from 'react-redux';
+import rootReducers from './store/reducers/rootReducers';
+ import { createStore } from 'redux';
+
+
 
 const App = () => {
   return (
+   <Provider store={createStore(rootReducers)}>
     <SafeAreaView>
       <Header/>
 
@@ -24,6 +30,8 @@ const App = () => {
 
      
     </SafeAreaView>
+    </Provider>
+    
   );
 };
 

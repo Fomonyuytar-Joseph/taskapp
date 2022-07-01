@@ -2,14 +2,17 @@
 import {View, Text, TouchableOpacity, Modal} from 'react-native';
 import React, {useState} from 'react';
 import TakeTodo from './TakeTodo';
+import {connect} from 'react-redux'
+import { makeVisible ,unVisible } from '../store/actions/rootActions';
+
 
 import Icon from 'react-native-vector-icons/AntDesign';
 
 const AddButton = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+  
   return (
     <View>
-      <Modal visible={modalVisible} animationType="slide" transparent={true}>
+      <Modal visible={false} animationType="slide" transparent={true}>
         <View
           style={{
             borderRadius:20,
@@ -22,7 +25,8 @@ const AddButton = () => {
             name="close"
             size={20}
             color={'#30B0D9'}
-            onPress={() => setModalVisible(false)}
+            //onPress={() => setModalVisible(false)}
+          
           />
 
           <TakeTodo />
@@ -35,5 +39,13 @@ const AddButton = () => {
     </View>
   );
 };
+
+const mapStateToProps =(state)=>{
+
+  console.log(state)
+  return {
+     visibility : state.mymodalVisible
+  }
+}
 
 export default AddButton;
