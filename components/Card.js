@@ -1,11 +1,17 @@
 /* eslint-disable */
-import { View, Text } from 'react-native'
+import { View, Text ,TouchableOpacity , } from 'react-native'
 import React from 'react'
+import {BouncyCheckbox} from "react-native-bouncy-checkbox";
+
+
 
 const Card = ({item}) => {
   return (
+
     <View>
-      <Text>item</Text>
+      
+      <Text>{item.text}</Text>
+
     </View>
   )
 }

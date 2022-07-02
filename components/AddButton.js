@@ -7,16 +7,15 @@ import Icon from 'react-native-vector-icons//MaterialIcons';
 
 const AddButton = ({submitHandler}) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [text, setText] = useState('')
+  const [text, setText] = useState('');
 
-  const changeHandler= (val)=>{
-
-    setText(val)
-  }
+  const changeHandler = val => {
+    setText(val);
+  };
 
   return (
     <View>
-      <Modal visible={modalVisible} animationType="slide" transparent={true}>
+      <Modal visible={modalVisible} animationType="slide" transparent={true}  onBackdropPress={() => setModalVisible(false)}>
         <View
           style={{
             borderRadius:20,
@@ -30,7 +29,7 @@ const AddButton = ({submitHandler}) => {
           <View style={styles.container}>
      <View>
       <TextInput
-        onChange={changeHandler}
+        onChangeText={changeHandler}
         value={text}
         placeholder='Add Todo'
         style={styles.input}
@@ -49,7 +48,7 @@ const AddButton = ({submitHandler}) => {
 </TouchableOpacity>
 
 <TouchableOpacity  >
-<Icon name='check-circle' color={'#09f700'}size={50}  onPress={()=>submitHandler(text)} />
+<Icon name='check-circle' color={'#09f700'}size={50}  onPress={() => submitHandler(text)} />
 </TouchableOpacity>
 
 <TouchableOpacity  >

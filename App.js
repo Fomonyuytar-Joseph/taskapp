@@ -17,6 +17,8 @@ import { useState } from 'react';
 
 
 
+
+
 const App = () => {
     const [todos, setTodos] = useState('')
 
@@ -35,18 +37,23 @@ const App = () => {
   
     <SafeAreaView>
       <Header/>
+
+
+    
+      
      <View>
 
      <FlatList
             data={todos}
             renderItem={({ item }) => (
-             <Card item={item}  />
+             <Card item={item} pressHandler={pressHandler} />
             )}
           />
       </View>
 
 
       <View style={{ alignItems:'flex-end' ,bottom:-400 , right:40 ,position:'relative' }}>
+      
       <AddButton submitHandler={submitHandler}/>
       </View>
 
