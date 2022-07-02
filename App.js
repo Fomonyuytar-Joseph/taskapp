@@ -13,6 +13,7 @@ import Card from './components/Card';
 
 import {SafeAreaView,  Text  ,View ,FlatList} from 'react-native';
 import { useState } from 'react';
+import RadioButtonRN from 'radio-buttons-react-native';
 
 
 
@@ -32,11 +33,12 @@ const App = () => {
       });
 
     }
-
+    
   return (
   
     <SafeAreaView>
       <Header/>
+     
 
 
     
@@ -46,7 +48,7 @@ const App = () => {
      <FlatList
             data={todos}
             renderItem={({ item }) => (
-             <Card item={item} pressHandler={pressHandler} />
+             <Card item={item}  />
             )}
           />
       </View>
