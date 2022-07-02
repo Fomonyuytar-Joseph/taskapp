@@ -1,20 +1,29 @@
 /* eslint-disable */
 import { combineReducers } from "redux";
 
+let nextId = 0
+const todos = (state = [], action) => {
+    switch (action.type) {
+        case 'ADD_TODO':
+            return [
+                ...state, {
+                    id: nextId++,
+                    text: action.text,
+                    completed: false
+                }
+            ]
 
-
-const makeVisibleReducer =(  makeVisibleReducer=false , action )=>{
-    if(action.type ==='VISIBLE'){
-        return action.payload
+        case 'TOGGLE_TODO':
+            return state.map(todo =>
+                (todo.id === action.id)
+                    ? { ...todo, completed: !todo.completed } :
+                    todo)
+        default:
+            return state
     }
-     
-
-    return makeVisibleReducer
-
-    
 }
 
 
 export default combineReducers({
-    makeVisible:makeVisibleReducer
+    todos
 })

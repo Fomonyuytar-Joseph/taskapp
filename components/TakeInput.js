@@ -1,18 +1,35 @@
 /* eslint-disable */
-import {View, Text, TextInput, StyleSheet} from 'react-native';
+import {View, Text, TextInput, StyleSheet ,Button, Touchable ,TouchableOpacity} from 'react-native';
 import React from 'react';
+import { useState } from 'react';
 
 const TakeInput = () => {
+    const [text, setText] = useState('')
+
+    
+     
+
   return (
     <View style={styles.container}>
-     
+     <View>
       <TextInput
-        
+        onChange={(val) => setText(val)}
+        value={text}
         placeholder='Add Todo'
         style={styles.input}
         
         
       />
+      </View>
+      
+      <View>
+        
+        <TouchableOpacity>
+      <Text> Add Todo</Text>
+      </TouchableOpacity>
+
+      </View>
+      
     </View>
   );
 };

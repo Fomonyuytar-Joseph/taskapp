@@ -9,6 +9,7 @@
 import React from 'react';
 import Header from './components/Header';
 import AddButton from './components/AddButton';
+import Card from './components/Card';
 
 import {SafeAreaView,  Text  ,View} from 'react-native';
 
@@ -20,8 +21,13 @@ const App = () => {
   
     <SafeAreaView>
       <Header/>
+     <View>
 
-      <Text> Joseph tuyyiu</Text>
+     <Card/>
+
+      </View>
+
+
       <View style={{ alignItems:'flex-end' ,bottom:-400 , right:40 ,position:'relative' }}>
       <AddButton/>
       </View>
