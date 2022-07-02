@@ -13,7 +13,7 @@ const AddButton = () => {
         <View
           style={{
             borderRadius:20,
-            height: '60%',
+            height: '40%',
             marginTop: 'auto',
             backgroundColor: '#f5f5f5',
             elevation:5

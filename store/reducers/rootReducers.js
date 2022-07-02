@@ -1,20 +1,20 @@
 /* eslint-disable */
 import { combineReducers } from "redux";
 
-const initialstate=false
 
-const visibleReducer =( state=initialstate , action )=>{
+
+const makeVisibleReducer =(  makeVisibleReducer=false , action )=>{
     if(action.type ==='VISIBLE'){
         return action.payload
     }
      
 
-    return state
+    return makeVisibleReducer
 
     
 }
 
 
 export default combineReducers({
-    mymodalVisible:visibleReducer
+    makeVisible:makeVisibleReducer
 })

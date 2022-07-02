@@ -3,7 +3,7 @@ export const makeVisible = (option) =>{
 
     return {
         type:'VISIBLE',
-        payload:true
+        payload:option
     }
 }
 
