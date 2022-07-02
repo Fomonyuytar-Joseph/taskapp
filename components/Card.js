@@ -2,10 +2,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Card = () => {
+const Card = ({item}) => {
   return (
     <View>
-      <Text>Card</Text>
+      <Text>item</Text>
     </View>
   )
 }

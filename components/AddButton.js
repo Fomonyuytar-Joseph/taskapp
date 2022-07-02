@@ -5,9 +5,14 @@ import TakeTodo from './TakeTodo';
 
 import Icon from 'react-native-vector-icons//MaterialIcons';
 
-const AddButton = () => {
+const AddButton = ({submitHandler}) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [text, setText] = useState('')
+
+  const changeHandler= (val)=>{
+
+    setText(val)
+  }
 
   return (
     <View>
@@ -25,7 +30,7 @@ const AddButton = () => {
           <View style={styles.container}>
      <View>
       <TextInput
-        onChange={(val) => setText(val)}
+        onChange={changeHandler}
         value={text}
         placeholder='Add Todo'
         style={styles.input}
@@ -44,7 +49,7 @@ const AddButton = () => {
 </TouchableOpacity>
 
 <TouchableOpacity  >
-<Icon name='check-circle' color={'#09f700'}size={50}  />
+<Icon name='check-circle' color={'#09f700'}size={50}  onPress={()=>submitHandler(text)} />
 </TouchableOpacity>
 
 <TouchableOpacity  >
