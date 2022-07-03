@@ -1,35 +1,42 @@
 /* eslint-disable */
 import { View, Text ,TouchableOpacity ,StyleSheet } from 'react-native'
 import React from 'react'
-import RadioButtonRN from 'radio-buttons-react-native';
+
+import Icon from 'react-native-vector-icons//MaterialIcons';
 
 
 
-const Card = ({item}) => {
+const Card = ({item ,deleteHandler}) => {
 
   
-const data = [
-    {
-      label: item.text
-     },
-     
-    ];
+
   return (
 
-    <View>
+    <View style={styles.container}>
       
-      <View>
-      <RadioButtonRN
-  data={data}
-  box={false}
-  selectedBtn={(e) => console.log(e)}
-/>
+      <View style={styles.radioContainer} >
+   <Text>{item.text}</Text>
 
 </View>
-<Text>hi</Text>
+
+<TouchableOpacity onPress={()=> deleteHandler(item.key)}>
+<Icon name='delete' color={'#f70000'}size={30}  />
+</TouchableOpacity >
 
     </View>
   )
 }
 
+const styles = StyleSheet.create({
+    radioContainer:
+    {
+        width:'80%'
+    },
+    container:{
+        flexDirection:'row',
+        alignItems:'center',
+        marginLeft: 25,
+
+    }
+})
 export default Card

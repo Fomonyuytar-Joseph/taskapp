@@ -13,7 +13,7 @@ import Card from './components/Card';
 
 import {SafeAreaView,  Text  ,View ,FlatList} from 'react-native';
 import { useState } from 'react';
-import RadioButtonRN from 'radio-buttons-react-native';
+
 
 
 
@@ -23,6 +23,15 @@ import RadioButtonRN from 'radio-buttons-react-native';
 const App = () => {
     const [todos, setTodos] = useState('')
 
+
+    const deleteHandler = (key)=>{
+
+      setTodos((prevTodos)=>
+  
+      // eslint-disable-next-line eqeqeq
+      { return  prevTodos.filter( todo => todo.key != key);});
+  
+    };
     const submitHandler = (text)=>{
    
       setTodos(prevTodos => {
@@ -48,7 +57,7 @@ const App = () => {
      <FlatList
             data={todos}
             renderItem={({ item }) => (
-             <Card item={item}  />
+             <Card item={item} deleteHandler={deleteHandler} />
             )}
           />
       </View>
@@ -56,7 +65,7 @@ const App = () => {
 
       <View style={{ alignItems:'flex-end' ,bottom:-400 , right:40 ,position:'relative' }}>
       
-      <AddButton submitHandler={submitHandler}/>
+      <AddButton submitHandler={submitHandler} />
       </View>
 
      

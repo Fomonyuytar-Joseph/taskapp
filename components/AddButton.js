@@ -5,7 +5,7 @@ import TakeTodo from './TakeTodo';
 
 import Icon from 'react-native-vector-icons//MaterialIcons';
 
-const AddButton = ({submitHandler}) => {
+const AddButton = ({submitHandler }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [text, setText] = useState('');
 
