@@ -10,6 +10,7 @@ import React from 'react';
 import Header from './components/Header';
 import AddButton from './components/AddButton';
 import Card from './components/Card';
+import CompletedTodoCard from './components/CompletedTodoCard';
 
 import {SafeAreaView,  Text  ,View ,FlatList} from 'react-native';
 import { useState } from 'react';
@@ -22,6 +23,7 @@ import { useState } from 'react';
 
 const App = () => {
     const [todos, setTodos] = useState('')
+    const [completedTodos, setCompletedTodos] = useState('')
 
 
     const deleteHandler = (key)=>{
@@ -42,6 +44,20 @@ const App = () => {
       });
 
     }
+
+    const submitCompleteHandler = (text)=>{
+   
+      setCompletedTodos(prevTodos => {
+        return [
+          { text, key: Math.random().toString() },
+          ...prevTodos,
+        ];
+      });
+
+    }
+
+
+    
     
   return (
   
@@ -63,9 +79,16 @@ const App = () => {
       </View>
 
 
+
+      <CompletedTodoCard  />
       <View style={{ alignItems:'flex-end' ,bottom:-400 , right:40 ,position:'relative' }}>
       
-      <AddButton submitHandler={submitHandler} />
+
+      
+      <AddButton submitHandler={submitHandler}  submitCompleteHandler={submitCompleteHandler}/>
+      
+    
+
       </View>
 
      

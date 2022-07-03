@@ -21,7 +21,12 @@ const Card = ({item ,deleteHandler}) => {
 
 <TouchableOpacity onPress={()=> deleteHandler(item.key)}>
 <Icon name='delete' color={'#f70000'}size={30}  />
+
 </TouchableOpacity >
+
+<TouchableOpacity>
+<Icon name='add-circle' color={'blue'}size={30}  />
+</TouchableOpacity>
 
     </View>
   )
@@ -30,13 +35,13 @@ const Card = ({item ,deleteHandler}) => {
 const styles = StyleSheet.create({
     radioContainer:
     {
-        width:'80%'
+        width:'40%'
     },
     container:{
         flexDirection:'row',
         alignItems:'center',
         marginLeft: 25,
 
-    }
+    },
 })
 export default Card
