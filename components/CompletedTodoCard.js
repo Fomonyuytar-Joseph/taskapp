@@ -6,7 +6,7 @@ const CompletedTodoCard = ({completedTodos}) => {
   return (
     <View>
         <Text>sdasd</Text>
-      <Text>{completedTodos.text}</Text>
+      <Text>{completedTodos.Text}</Text>
     </View>
   )
 }

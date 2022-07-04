@@ -49,7 +49,12 @@ const App = () => {
 
     const submitCompleteHandler = (todo)=>{
    
-      setCompletedTodos(todo);
+      setCompletedTodos(prevTodos => {
+        return [
+           todo  ,
+          ...prevTodos,
+        ];
+      });
 
     }
 
