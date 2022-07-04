@@ -24,8 +24,10 @@ import { useState } from 'react';
 const App = () => {
     const [todos, setTodos] = useState('')
     const [completedTodos, setCompletedTodos] = useState('')
+     
+    // console.log(todos)
+    // console.log(completedTodos)
 
-    console.log(completedTodos)
 
 
     const deleteHandler = (key)=>{
@@ -64,11 +66,11 @@ const App = () => {
   return (
   
     <SafeAreaView>
-      <Header/>
+      <Header headerText={'Todo App'}/>
      
 
 
-    
+      
       
      <View>
 
@@ -81,8 +83,17 @@ const App = () => {
       </View>
 
 
+      <Header headerText={'Completed Todos'}/>
 
-      <CompletedTodoCard completedTodos={completedTodos} />
+      <FlatList
+            data={completedTodos}
+            renderItem={({ item }) => (
+              <CompletedTodoCard item={item} />
+            )}
+          />
+
+     
+
       <View style={{ alignItems:'flex-end' ,bottom:-400 , right:40 ,position:'relative' }}>
       
 

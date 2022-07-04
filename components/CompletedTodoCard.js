@@ -2,11 +2,14 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const CompletedTodoCard = ({completedTodos}) => {
+const CompletedTodoCard = ({item}) => {
+
+  
+  
   return (
     <View>
-        <Text>sdasd</Text>
-      <Text>{completedTodos.Text}</Text>
+      
+      <Text>{item.text}</Text>
     </View>
   )
 }

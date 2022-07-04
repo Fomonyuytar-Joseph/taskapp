@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons//MaterialIcons';
 
 const Card = ({item ,deleteHandler ,submitCompleteHandler}) => {
 
-  
+     
 
   return (
 

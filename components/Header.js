@@ -2,10 +2,10 @@
 import {View, Text ,StyleSheet} from 'react-native';
 import React from 'react';
 
-const Header = () => {
+const Header = ({headerText}) => {
   return (
     <View style={styles.header}>
-      <Text style={styles.title}>TODO APP</Text>
+      <Text style={styles.title}>{headerText}</Text>
     </View>
   );
 };
