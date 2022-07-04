@@ -25,6 +25,8 @@ const App = () => {
     const [todos, setTodos] = useState('')
     const [completedTodos, setCompletedTodos] = useState('')
 
+    console.log(completedTodos)
+
 
     const deleteHandler = (key)=>{
 
@@ -45,14 +47,9 @@ const App = () => {
 
     }
 
-    const submitCompleteHandler = (text)=>{
+    const submitCompleteHandler = (todo)=>{
    
-      setCompletedTodos(prevTodos => {
-        return [
-          { text, key: Math.random().toString() },
-          ...prevTodos,
-        ];
-      });
+      setCompletedTodos(todo);
 
     }
 
@@ -73,19 +70,19 @@ const App = () => {
      <FlatList
             data={todos}
             renderItem={({ item }) => (
-             <Card item={item} deleteHandler={deleteHandler} />
+             <Card item={item} deleteHandler={deleteHandler} submitCompleteHandler={submitCompleteHandler} />
             )}
           />
       </View>
 
 
 
-      <CompletedTodoCard  />
+      <CompletedTodoCard completedTodos={completedTodos} />
       <View style={{ alignItems:'flex-end' ,bottom:-400 , right:40 ,position:'relative' }}>
       
 
       
-      <AddButton submitHandler={submitHandler}  submitCompleteHandler={submitCompleteHandler}/>
+      <AddButton submitHandler={submitHandler}  />
       
     
 

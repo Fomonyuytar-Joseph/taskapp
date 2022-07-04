@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons//MaterialIcons';
 
 
 
-const Card = ({item ,deleteHandler}) => {
+const Card = ({item ,deleteHandler ,submitCompleteHandler}) => {
 
   
 
@@ -19,15 +19,20 @@ const Card = ({item ,deleteHandler}) => {
 
 </View>
 
+<View style={{flexDirection:'row' ,justifyContent:'space-evenly'}}>
+
 <TouchableOpacity onPress={()=> deleteHandler(item.key)}>
 <Icon name='delete' color={'#f70000'}size={30}  />
 
-</TouchableOpacity >
+</TouchableOpacity  >
 
-<TouchableOpacity>
-<Icon name='add-circle' color={'blue'}size={30}  />
-</TouchableOpacity>
 
+</View>
+
+<TouchableOpacity onPress={()=> submitCompleteHandler(item)}>
+<Icon name='delete' color={'#f70000'}size={30}  />
+
+</TouchableOpacity  >
     </View>
   )
 }
