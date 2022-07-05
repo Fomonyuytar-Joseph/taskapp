@@ -12,8 +12,8 @@ import TakeTodo from './TakeTodo';
 
 import Icon from 'react-native-vector-icons//MaterialIcons';
 
-const AddButton = ({submitHandler}) => {
-  const [modalVisible, setModalVisible] = useState(false);
+const AddButton = ({submitHandler ,modalVisible ,setModalVisible}) => {
+  
   const [text, setText] = useState('');
 
   const changeHandler = val => {
@@ -72,11 +72,6 @@ const AddButton = ({submitHandler}) => {
         </View>
       </Modal>
 
-      <View  style={styles.addButtonContainer}>
-        <TouchableOpacity onPress={() => setModalVisible(true)}>
-          <Icon name="add-circle" size={50} color={'#30B0D9'} />
-        </TouchableOpacity>
-      </View>
     </View>
   );
 };
