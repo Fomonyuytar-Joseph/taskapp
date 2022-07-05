@@ -29,8 +29,8 @@ const Card = ({item ,deleteHandler ,submitCompleteHandler}) => {
 
 </View>
 
-<TouchableOpacity onPress={()=> submitCompleteHandler(item)}>
-<Icon name='delete' color={'#f70000'}size={30}  />
+<TouchableOpacity onPress={()=>{submitCompleteHandler(item) ,deleteHandler(item.key)}}>
+<Icon name='image' color={'#f70000'}size={30}  />
 
 </TouchableOpacity  >
     </View>
@@ -40,12 +40,18 @@ const Card = ({item ,deleteHandler ,submitCompleteHandler}) => {
 const styles = StyleSheet.create({
     radioContainer:
     {
-        width:'40%'
+        width:'80%'
     },
     container:{
         flexDirection:'row',
         alignItems:'center',
         marginLeft: 25,
+        borderColor: '#bbb',
+        borderWidth: 1,
+        borderStyle: 'dashed',
+        borderRadius: 10,
+        marginTop: 10,
+        padding: 16,
 
     },
 })

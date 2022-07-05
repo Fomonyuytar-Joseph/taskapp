@@ -26,7 +26,7 @@ const App = () => {
 
   const deleteHandler = key => {
     setTodos(prevTodos =>
-      // eslint-disable-next-line eqeqeq
+      // eslint-disable-next-line hg
       {
         return prevTodos.filter(todo => todo.key != key);
       },
@@ -75,7 +75,7 @@ const App = () => {
         <View >
           <FlatList
             data={completedTodos}
-            renderItem={({item}) => <CompletedTodoCard item={item} />}
+            renderItem={({item}) => <CompletedTodoCard item={item} deleteHandler={deleteHandler}/>}
           />
         </View>
       </View>
