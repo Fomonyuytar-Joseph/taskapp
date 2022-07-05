@@ -94,7 +94,7 @@ const App = () => {
 
      
 
-      <View style={{ alignItems:'flex-end' ,bottom:-400 , right:40 ,position:'relative' }}>
+      <View >
       
 
       
