@@ -15,10 +15,12 @@ import CompletedTodoCard from './components/CompletedTodoCard';
 import {SafeAreaView, Text, View, FlatList ,StyleSheet} from 'react-native';
 import {useState} from 'react';
 import AddTodoButton from './components/AddTodoButton';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 const App = () => {
   const [todos, setTodos] = useState('');
-  const [completedTodos, setCompletedTodos] = useState('');
+  // const [completedTodos, setCompletedTodos] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
 
   // console.log(todos)
@@ -38,14 +40,14 @@ const App = () => {
     });
   };
 
-  const submitCompleteHandler = todo => {
-    setCompletedTodos(prevTodos => {
-      return [todo, ...prevTodos];
-    });
-  };
+  // const submitCompleteHandler = todo => {
+  //   setCompletedTodos(prevTodos => {
+  //     return [todo, ...prevTodos];
+  //   });
+  // };
 
   return (
-    <>
+    <Provider store={store}>
       <View style={styles.todoContainer}>
       {/* Display a Header */}
       <Header headerText={'Todo App'} />
@@ -58,28 +60,14 @@ const App = () => {
             <Card
               item={item}
               deleteHandler={deleteHandler}
-              submitCompleteHandler={submitCompleteHandler}
+              // submitCompleteHandler={submitCompleteHandler}
             />
           )}
         />
       </View>
       </View>
 
-      {/* //Header for completed Todos */}
-      <View style={styles.completedContainer}>
-        <View>
-          <Header headerText={'Completed Todos'} />
-        </View>
-
-        {/* // Display list of completed Todo */}
-        <View >
-          <FlatList
-            data={completedTodos}
-            renderItem={({item}) => <CompletedTodoCard item={item} deleteHandler={deleteHandler}/>}
-          />
-        </View>
-      </View>
-
+     
       <View>
         <AddButton submitHandler={submitHandler} modalVisible={modalVisible} setModalVisible={setModalVisible} />
       </View>
@@ -87,7 +75,7 @@ const App = () => {
       <View style={styles.addTodoContainer}>
         <AddTodoButton setModalVisible={setModalVisible}/>
       </View>
-    </>
+    </Provider>
   );
 };
 
