@@ -12,7 +12,15 @@ import AddButton from './components/AddButton';
 import Card from './components/Card';
 import CompletedTodoCard from './components/CompletedTodoCard';
 
-import {SafeAreaView, Text, View, FlatList, StyleSheet,Button, Image} from 'react-native';
+import {
+  SafeAreaView,
+  Text,
+  View,
+  FlatList,
+  StyleSheet,
+  Button,
+  Image,
+} from 'react-native';
 import {useState} from 'react';
 import AddTodoButton from './components/AddTodoButton';
 // import { Provider } from 'react-redux';
@@ -29,13 +37,12 @@ const App = () => {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
-   const [selectedTodo, setSelectedTodo] = useState([])
-   const [todoImage, setTodoImage] = useState('C:/Users/Fomonyuytar/Desktop/Myapps/taskapp/assets/dog1.jpg')
+  const [selectedTodo, setSelectedTodo] = useState([]);
+  const [todoImage, setTodoImage] = useState('');
 
   const [isEditing, setIsEditing] = useState(false);
 
-
-  console.log(selectedTodo.id)
+  console.log(selectedTodo.id);
   // console.log(image)
   // console.log(todos)
   // console.log(completedTodos)
@@ -47,25 +54,20 @@ const App = () => {
     dispatch(addTodo(text));
   };
 
-  const editHandler = (text ,id) => {
-
-     dispatch(editTodo(text ,id))
-    
+  const editHandler = (text, id) => {
+    dispatch(editTodo(text, id));
   };
 
-  const photoHandler = ()=>{
-
+  const photoHandler = () => {
     ImagePicker.openPicker({
       width: 300,
       height: 400,
-      cropping: true
+      cropping: true,
     }).then(image => {
       console.log(image);
-      setImage(image.path)
+      setTodoImage(image.path);
     });
-  }
-
-
+  };
 
   // const closeEditModal = () => {
   //   setIsEditing(false);
@@ -76,20 +78,22 @@ const App = () => {
   //     return [todo, ...prevTodos];
   //   });
   // };
-  const photo = {uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/S%C3%A4ugende_H%C3%BCndin.JPG/330px-S%C3%A4ugende_H%C3%BCndin.JPG'}
+  const photo = {
+    uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/S%C3%A4ugende_H%C3%BCndin.JPG/330px-S%C3%A4ugende_H%C3%BCndin.JPG',
+  };
 
-  if(!isEditing){
-    return(
-    <>
-    <Text>HI</Text>
-    <View>
-      <Button title='Photo' onPress={photoHandler} />
-    </View>
-    <View>
-    <Image source={{uri:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Kittyply_edit1.jpg/330px-Kittyply_edit1.jpg'}}  style={{height:100 ,width:100}}/>
-    </View>
-    </>
-    )
+  if (isEditing) {
+    return (
+      <>
+        <Text>HI</Text>
+        <View>
+          <Button title="Photo" onPress={photoHandler} />
+        </View>
+        <View>
+          <Image source={{uri: todoImage}} style={{height: 100, width: 100}} />
+        </View>
+      </>
+    );
   }
 
   return (
@@ -98,9 +102,7 @@ const App = () => {
         {/* Display a Header */}
         <Header headerText={'Todo App'} />
 
-        <View>
-    <Image  source={todoImage} style={{height:100 ,width:100}}/>
-    </View>
+        <View></View>
 
         {/* List of Todos */}
         <View>
@@ -116,7 +118,8 @@ const App = () => {
                 setEditModalVisible={setEditModalVisible}
                 editHandler={editHandler}
                 setSelectedTodo={setSelectedTodo}
-                
+                todoImage={todoImage}
+
                 // submitCompleteHandler={submitCompleteHandler}
               />
             )}
@@ -139,6 +142,8 @@ const App = () => {
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
           setEditModalVisible={setEditModalVisible}
+          photoHandler={photoHandler}
+          todoImage={todoImage}
         />
       </View>
 

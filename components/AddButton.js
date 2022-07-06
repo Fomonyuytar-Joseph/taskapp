@@ -1,21 +1,23 @@
 /* eslint-disable */
 import {
   View,
- 
   TouchableOpacity,
   Modal,
   StyleSheet,
   TextInput,
+  Image,
 } from 'react-native';
 import React, {useState} from 'react';
 
-
 import Icon from 'react-native-vector-icons//MaterialIcons';
 
-const AddButton = ({submitHandler ,modalVisible ,setModalVisible }) => {
-
-  
-  
+const AddButton = ({
+  submitHandler,
+  modalVisible,
+  setModalVisible,
+  photoHandler,
+  todoImage,
+}) => {
   const [text, setText] = useState('');
 
   const changeHandler = val => {
@@ -68,13 +70,19 @@ const AddButton = ({submitHandler ,modalVisible ,setModalVisible }) => {
               />
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={photoHandler}>
               <Icon name="image" color={'#30B0D9'} size={50} />
             </TouchableOpacity>
           </View>
+
+          <View>
+            <Image
+              source={{uri: todoImage}}
+              style={{height: 100, width: 100}}
+            />
+          </View>
         </View>
       </Modal>
-
     </View>
   );
 };
@@ -101,15 +109,11 @@ const styles = StyleSheet.create({
   },
 
   addButtonContainer: {
-    flexDirection:'row',
-    justifyContent:'flex-end',
-    marginVertical:400,
-    marginHorizontal:30,
-    position:'relative',
-  
-    
- 
-  
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginVertical: 400,
+    marginHorizontal: 30,
+    position: 'relative',
   },
 });
 export default AddButton;
