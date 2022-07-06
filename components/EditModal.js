@@ -10,7 +10,7 @@ import React, {useState} from 'react';
 
 import Icon from 'react-native-vector-icons//MaterialIcons';
 
-const EditModal = ({editModalVisible, setEditModalVisible}) => {
+const EditModal = ({editModalVisible, setEditModalVisible ,editHandler}) => {
   const [text, setText] = useState('');
 
   const changeHandler = val => {
@@ -59,7 +59,7 @@ const EditModal = ({editModalVisible, setEditModalVisible}) => {
                 name="check-circle"
                 color={'#09f700'}
                 size={50}
-                onPress={() => console.log('accep to edit')}
+                onPress={() => editHandler(text)}
               />
             </TouchableOpacity>
 

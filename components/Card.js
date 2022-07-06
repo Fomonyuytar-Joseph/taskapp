@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons//MaterialIcons';
 
 
 
-const Card = ({item ,setEditModalVisible ,editModalVisible}) => {
+const Card = ({item ,setEditModalVisible ,editModalVisible ,editHandler}) => {
 
     
 
@@ -49,7 +49,7 @@ const Card = ({item ,setEditModalVisible ,editModalVisible}) => {
 
 
 <View>
-<TouchableOpacity onPress={ onEditHandler}>
+<TouchableOpacity onPress={()=>{setEditModalVisible(true), console.log(item)}}>
 
 <Icon name='edit' color={'#00007c'}size={30}   />
 

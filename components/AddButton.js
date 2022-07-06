@@ -12,7 +12,7 @@ import React, {useState} from 'react';
 
 import Icon from 'react-native-vector-icons//MaterialIcons';
 
-const AddButton = ({submitHandler ,modalVisible ,setModalVisible ,onEditHandler}) => {
+const AddButton = ({submitHandler ,modalVisible ,setModalVisible }) => {
 
   
   

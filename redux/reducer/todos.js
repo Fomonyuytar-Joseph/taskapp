@@ -19,11 +19,20 @@ const todos = (state = initialState, action) => {
       return [...todos]
 
       case EDIT_TODO:
-        const updatedTodo =todos.map((todo) => {
-          todo.id === payload.id ? updatedTodo : todo;
-          })
 
-          return [{...updatedTodo}]
+         console.log(payload)
+        state.forEach((todo) => {
+          if (todo.id === action.payload.id) {
+            
+            todo.content = action.payload.todo;
+          }
+        });
+        // const updatedTodo =todos.map((todo) => {
+        //   todo.id === payload.id ? updatedTodo : todo;
+        //   })
+
+
+          return state
       
     default:
       return state;

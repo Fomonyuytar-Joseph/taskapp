@@ -17,7 +17,7 @@ import {useState} from 'react';
 import AddTodoButton from './components/AddTodoButton';
 // import { Provider } from 'react-redux';
 // import store from './redux/store';
-import {addTodo, deleteTodo} from './redux/actions';
+import {addTodo, deleteTodo, editTodo} from './redux/actions';
 import {useDispatch, useSelector} from 'react-redux';
 import EditModal from './components/EditModal';
 
@@ -29,6 +29,7 @@ const App = () => {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
+   const [selectedTodo, setSelectedTodo] = useState([])
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -42,13 +43,17 @@ const App = () => {
     dispatch(addTodo(text));
   };
 
-  const onEditHandler = () => {
-    setIsEditing(true);
+  const editHandler = (text) => {
+
+     dispatch(editTodo(text))
+    
   };
 
-  const closeEditModal = () => {
-    setIsEditing(false);
-  };
+
+
+  // const closeEditModal = () => {
+  //   setIsEditing(false);
+  // };
 
   // const submitCompleteHandler = todo => {
   //   setCompletedTodos(prevTodos => {
@@ -74,6 +79,9 @@ const App = () => {
                 deleteHandler={deleteHandler}
                 editModalVisible={editModalVisible}
                 setEditModalVisible={setEditModalVisible}
+                editHandler={editHandler}
+                setSelectedTodo={setSelectedTodo}
+                
                 // submitCompleteHandler={submitCompleteHandler}
               />
             )}
@@ -85,6 +93,7 @@ const App = () => {
         <EditModal
           editModalVisible={editModalVisible}
           setEditModalVisible={setEditModalVisible}
+          editHandler={editHandler}
         />
       </View>
 
