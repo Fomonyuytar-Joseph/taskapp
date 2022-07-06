@@ -15,11 +15,31 @@ import CompletedTodoCard from './components/CompletedTodoCard';
 import {SafeAreaView, Text, View, FlatList ,StyleSheet} from 'react-native';
 import {useState} from 'react';
 import AddTodoButton from './components/AddTodoButton';
-import { Provider } from 'react-redux';
-import store from './redux/store';
+// import { Provider } from 'react-redux';
+// import store from './redux/store';
+import { addTodo, deleteTodo } from './redux/actions';
+import { useDispatch ,useSelector } from 'react-redux';
+
+
+
+
+
+
+
+
+
+
+
+
 
 const App = () => {
-  const [todos, setTodos] = useState('');
+
+  const dispatch = useDispatch();
+
+  const  {todos} = useSelector(state=> state);
+    console.log(todos)
+ 
+  // const [todos, setTodos] = useState('');
   // const [completedTodos, setCompletedTodos] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -27,17 +47,13 @@ const App = () => {
   // console.log(completedTodos)
 
   const deleteHandler = key => {
-    setTodos(prevTodos =>
-      // eslint-disable-next-line hg
-      {
-        return prevTodos.filter(todo => todo.key != key);
-      },
-    );
+    dispatch(deleteTodo(key))
   };
   const submitHandler = text => {
-    setTodos(prevTodos => {
-      return [{text, key: Math.random().toString()}, ...prevTodos];
-    });
+    dispatch(addTodo(text))
+    // setTodos(prevTodos => {
+    //   return [{text, key: Math.random().toString()}, ...prevTodos];
+    // });
   };
 
   // const submitCompleteHandler = todo => {
@@ -46,8 +62,9 @@ const App = () => {
   //   });
   // };
 
+
   return (
-    <Provider store={store}>
+      <>
       <View style={styles.todoContainer}>
       {/* Display a Header */}
       <Header headerText={'Todo App'} />
@@ -56,8 +73,10 @@ const App = () => {
       <View >
         <FlatList
           data={todos}
-          renderItem={({item}) => (
+          keyExtractor={(item,index)=>index}
+          renderItem={({item,index}) => (
             <Card
+              index = {index}
               item={item}
               deleteHandler={deleteHandler}
               // submitCompleteHandler={submitCompleteHandler}
@@ -75,7 +94,8 @@ const App = () => {
       <View style={styles.addTodoContainer}>
         <AddTodoButton setModalVisible={setModalVisible}/>
       </View>
-    </Provider>
+      </>
+   
   );
 };
 

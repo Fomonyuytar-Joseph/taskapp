@@ -13,6 +13,8 @@ import TakeTodo from './TakeTodo';
 import Icon from 'react-native-vector-icons//MaterialIcons';
 
 const AddButton = ({submitHandler ,modalVisible ,setModalVisible}) => {
+
+  
   
   const [text, setText] = useState('');
 
@@ -42,6 +44,7 @@ const AddButton = ({submitHandler ,modalVisible ,setModalVisible}) => {
                 value={text}
                 placeholder="Add Todo"
                 style={styles.input}
+                autoFocus={true}
               />
             </View>
           </View>

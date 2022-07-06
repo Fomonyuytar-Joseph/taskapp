@@ -1,20 +1,26 @@
 /* eslint-disable */
 
-// import { ADD_TODO, TOGGLE_TODO } from '../actionsTypes';
+import {ADD_TODO, DELETE_TODO} from '../actionsTypes';
 
-const initialState = {
-  todos: [{
-    id:1,
-    content:'coding',
-
-  }]
-}
+const initialState = [];
 
 const todos = (state = initialState, action) => {
-    switch(action.type){
-        default:
-            return state.todos
-    }
-}
+  const {payload} = action;
+  console.log(payload);
+
+
+  switch (action.type) {
+    case ADD_TODO:
+      return [{todo: payload.todo,id:payload.id}, ...state];
+
+    case DELETE_TODO:
+      const todos = state.filter(todo => todo.id != payload.id);
+
+      return [...todos]
+      
+    default:
+      return state;
+  }
+};
 
 export default todos;

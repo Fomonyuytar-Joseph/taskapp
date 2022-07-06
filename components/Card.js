@@ -3,19 +3,18 @@ import { View, Text ,TouchableOpacity ,StyleSheet } from 'react-native'
 import React from 'react'
 import RadioButtonRN from 'radio-buttons-react-native';
 import Icon from 'react-native-vector-icons//MaterialIcons';
-import { useSelector } from 'react-redux';
 
 
 
-const Card = ({item ,deleteHandler ,submitCompleteHandler}) => {
 
-    const { todos }= useSelector(state=> state);
-    console.log(todos)
+const Card = ({item ,deleteHandler ,submitCompleteHandler,index}) => {
+
+    
 
 
   const data = [
     {
-      label: item.text
+      label: item.todo
      },
      
     ];
@@ -29,8 +28,10 @@ const Card = ({item ,deleteHandler ,submitCompleteHandler}) => {
      <RadioButtonRN
     //  animationTypes={['rotate']}
   data={data}
+  
   selectedBtn={(e) => console.log(e) }
   box={false}
+
   // textStyle={ textDecoration='line-through'  }
   // boxActiveBgColor='#e9dee2'
   
@@ -47,7 +48,7 @@ const Card = ({item ,deleteHandler ,submitCompleteHandler}) => {
 
 <View >
 
-<TouchableOpacity onPress={()=> deleteHandler(item.key)}>
+<TouchableOpacity onPress={()=> deleteHandler(item.id)}>
 <Icon name='delete' color={'#f70000'}size={30}  />
 
 </TouchableOpacity  >
