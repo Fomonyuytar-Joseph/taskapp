@@ -72,7 +72,8 @@ const App = () => {
                 index={index}
                 item={item}
                 deleteHandler={deleteHandler}
-                onEditHandler={onEditHandler}
+                editModalVisible={editModalVisible}
+                setEditModalVisible={setEditModalVisible}
                 // submitCompleteHandler={submitCompleteHandler}
               />
             )}
@@ -92,7 +93,7 @@ const App = () => {
           submitHandler={submitHandler}
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
-          setEditModalVisible={set}
+          setEditModalVisible={setEditModalVisible}
         />
       </View>
 

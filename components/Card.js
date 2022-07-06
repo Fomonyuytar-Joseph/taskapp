@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons//MaterialIcons';
 
 
 
-const Card = ({item ,deleteHandler ,index ,onEditHandler}) => {
+const Card = ({item ,setEditModalVisible ,editModalVisible}) => {
 
     
 
