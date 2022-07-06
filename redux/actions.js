@@ -20,7 +20,7 @@ export const deleteTodo = id => ({
   },
 });
 
-export const editTodo =( content )=>  dispatch => {
+export const editTodo =( content ,id )=>  dispatch => {
 
       
 

@@ -20,18 +20,18 @@ const todos = (state = initialState, action) => {
 
       case EDIT_TODO:
 
-         console.log(payload)
+         
         state.forEach((todo) => {
-          if (todo.id === action.payload.id) {
+          if (todo.id === payload.id) {
             
-            todo.content = action.payload.todo;
+            todo.todo = payload.todo;
           }
         });
         // const updatedTodo =todos.map((todo) => {
         //   todo.id === payload.id ? updatedTodo : todo;
         //   })
 
-
+        
           return state
       
     default:

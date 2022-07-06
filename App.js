@@ -33,6 +33,8 @@ const App = () => {
 
   const [isEditing, setIsEditing] = useState(false);
 
+
+  console.log(selectedTodo.id)
   // console.log(todos)
   // console.log(completedTodos)
 
@@ -43,9 +45,9 @@ const App = () => {
     dispatch(addTodo(text));
   };
 
-  const editHandler = (text) => {
+  const editHandler = (text ,id) => {
 
-     dispatch(editTodo(text))
+     dispatch(editTodo(text ,id))
     
   };
 
@@ -94,6 +96,7 @@ const App = () => {
           editModalVisible={editModalVisible}
           setEditModalVisible={setEditModalVisible}
           editHandler={editHandler}
+          selectedTodo={selectedTodo.id}
         />
       </View>
 
