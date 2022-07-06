@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import {ADD_TODO, DELETE_TODO} from '../actionsTypes';
+import {ADD_TODO, DELETE_TODO, EDIT_TODO} from '../actionsTypes';
 
 const initialState = [];
 
@@ -17,6 +17,13 @@ const todos = (state = initialState, action) => {
       const todos = state.filter(todo => todo.id != payload.id);
 
       return [...todos]
+
+      case EDIT_TODO:
+        const updatedTodo =todos.map((todo) => {
+          todo.id === payload.id ? updatedTodo : todo;
+          })
+
+          return [{...updatedTodo}]
       
     default:
       return state;

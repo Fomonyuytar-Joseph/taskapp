@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import {ADD_TODO, DELETE_TODO} from './actionsTypes';
+import {ADD_TODO, DELETE_TODO ,EDIT_TODO} from './actionsTypes';
 
 export const addTodo = content => dispatch => {
   let id = Math.random().toString();
@@ -19,3 +19,23 @@ export const deleteTodo = id => ({
     id,
   },
 });
+
+export const editTodo =(content , id )=>  dispatch => {
+
+    dispatch({
+
+      type:EDIT_TODO,
+      payload: { todo:content , id }
+       
+
+
+
+    }
+
+
+
+    )
+
+
+
+}

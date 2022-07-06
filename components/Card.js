@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons//MaterialIcons';
 
 
 
-const Card = ({item ,deleteHandler ,submitCompleteHandler,index}) => {
+const Card = ({item ,deleteHandler ,index ,onEditHandler}) => {
 
     
 
@@ -46,7 +46,18 @@ const Card = ({item ,deleteHandler ,submitCompleteHandler,index}) => {
 />
 </View>
 
-<View >
+
+
+<View>
+<TouchableOpacity onPress={ onEditHandler}>
+
+<Icon name='edit' color={'#00007c'}size={30}   />
+
+</TouchableOpacity>
+</View>
+
+
+
 
 <TouchableOpacity onPress={()=> deleteHandler(item.id)}>
 <Icon name='delete' color={'#f70000'}size={30}  />
@@ -54,7 +65,10 @@ const Card = ({item ,deleteHandler ,submitCompleteHandler,index}) => {
 </TouchableOpacity  >
 
 
-</View>
+
+
+
+
 
 
     </View>

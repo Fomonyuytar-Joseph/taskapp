@@ -12,48 +12,42 @@ import AddButton from './components/AddButton';
 import Card from './components/Card';
 import CompletedTodoCard from './components/CompletedTodoCard';
 
-import {SafeAreaView, Text, View, FlatList ,StyleSheet} from 'react-native';
+import {SafeAreaView, Text, View, FlatList, StyleSheet} from 'react-native';
 import {useState} from 'react';
 import AddTodoButton from './components/AddTodoButton';
 // import { Provider } from 'react-redux';
 // import store from './redux/store';
-import { addTodo, deleteTodo } from './redux/actions';
-import { useDispatch ,useSelector } from 'react-redux';
-
-
-
-
-
-
-
-
-
-
-
-
+import {addTodo, deleteTodo} from './redux/actions';
+import {useDispatch, useSelector} from 'react-redux';
+import EditModal from './components/EditModal';
 
 const App = () => {
-
   const dispatch = useDispatch();
 
-  const  {todos} = useSelector(state=> state);
-    console.log(todos)
- 
-  // const [todos, setTodos] = useState('');
-  // const [completedTodos, setCompletedTodos] = useState('');
+  const {todos} = useSelector(state => state);
+  console.log(todos);
+
   const [modalVisible, setModalVisible] = useState(false);
+  const [editModalVisible, setEditModalVisible] = useState(false);
+
+  const [isEditing, setIsEditing] = useState(false);
 
   // console.log(todos)
   // console.log(completedTodos)
 
   const deleteHandler = key => {
-    dispatch(deleteTodo(key))
+    dispatch(deleteTodo(key));
   };
   const submitHandler = text => {
-    dispatch(addTodo(text))
-    // setTodos(prevTodos => {
-    //   return [{text, key: Math.random().toString()}, ...prevTodos];
-    // });
+    dispatch(addTodo(text));
+  };
+
+  const onEditHandler = () => {
+    setIsEditing(true);
+  };
+
+  const closeEditModal = () => {
+    setIsEditing(false);
   };
 
   // const submitCompleteHandler = todo => {
@@ -62,71 +56,65 @@ const App = () => {
   //   });
   // };
 
-
   return (
-      <>
+    <>
       <View style={styles.todoContainer}>
-      {/* Display a Header */}
-      <Header headerText={'Todo App'} />
+        {/* Display a Header */}
+        <Header headerText={'Todo App'} />
 
-      {/* List of Todos */}
-      <View >
-        <FlatList
-          data={todos}
-          keyExtractor={(item,index)=>index}
-          renderItem={({item,index}) => (
-            <Card
-              index = {index}
-              item={item}
-              deleteHandler={deleteHandler}
-              // submitCompleteHandler={submitCompleteHandler}
-            />
-          )}
+        {/* List of Todos */}
+        <View>
+          <FlatList
+            data={todos}
+            keyExtractor={(item, index) => index}
+            renderItem={({item, index}) => (
+              <Card
+                index={index}
+                item={item}
+                deleteHandler={deleteHandler}
+                onEditHandler={onEditHandler}
+                // submitCompleteHandler={submitCompleteHandler}
+              />
+            )}
+          />
+        </View>
+      </View>
+
+      <View>
+        <EditModal
+          editModalVisible={editModalVisible}
+          setEditModalVisible={setEditModalVisible}
         />
       </View>
-      </View>
 
-     
       <View>
-        <AddButton submitHandler={submitHandler} modalVisible={modalVisible} setModalVisible={setModalVisible} />
+        <AddButton
+          submitHandler={submitHandler}
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+          setEditModalVisible={set}
+        />
       </View>
 
       <View style={styles.addTodoContainer}>
-        <AddTodoButton setModalVisible={setModalVisible}/>
+        <AddTodoButton setModalVisible={setModalVisible} />
       </View>
-      </>
-   
+    </>
   );
 };
 
-const styles= StyleSheet.create({
-  todoContainer:{
-    
-    
-    flex:4
-
-   
-
+const styles = StyleSheet.create({
+  todoContainer: {
+    flex: 4,
   },
-  completedContainer:{
-    
-    
-    flex: 4
-    
-
+  completedContainer: {
+    flex: 4,
   },
-   addTodoContainer:{
-  
-    
-    flex:1.5,
-    flexDirection:'row',
-    justifyContent:'flex-end',
-    paddingHorizontal:19
-
-   
-    
-   }
-
-
-})
+  addTodoContainer: {
+    flex: 1.5,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    paddingHorizontal: 19,
+  },
+});
 export default App;

@@ -1,7 +1,6 @@
 /* eslint-disable */
 import {
   View,
- 
   TouchableOpacity,
   Modal,
   StyleSheet,
@@ -9,13 +8,9 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 
-
 import Icon from 'react-native-vector-icons//MaterialIcons';
 
-const AddButton = ({submitHandler ,modalVisible ,setModalVisible ,onEditHandler}) => {
-
-  
-  
+const EditModal = ({editModalVisible, setEditModalVisible}) => {
   const [text, setText] = useState('');
 
   const changeHandler = val => {
@@ -25,10 +20,10 @@ const AddButton = ({submitHandler ,modalVisible ,setModalVisible ,onEditHandler}
   return (
     <View>
       <Modal
-        visible={modalVisible}
+        visible={editModalVisible}
         animationType="slide"
         transparent={true}
-        onBackdropPress={() => setModalVisible(false)}>
+        onBackdropPress={() => setEditModalVisible(false)}>
         <View
           style={{
             borderRadius: 20,
@@ -42,7 +37,7 @@ const AddButton = ({submitHandler ,modalVisible ,setModalVisible ,onEditHandler}
               <TextInput
                 onChangeText={changeHandler}
                 value={text}
-                placeholder="Add Todo"
+                placeholder="Edit Todo"
                 style={styles.input}
                 autoFocus={true}
               />
@@ -55,7 +50,7 @@ const AddButton = ({submitHandler ,modalVisible ,setModalVisible ,onEditHandler}
                 name="cancel"
                 color={'red'}
                 size={50}
-                onPress={() => setModalVisible(false)}
+                onPress={() => setEditModalVisible(false)}
               />
             </TouchableOpacity>
 
@@ -64,7 +59,7 @@ const AddButton = ({submitHandler ,modalVisible ,setModalVisible ,onEditHandler}
                 name="check-circle"
                 color={'#09f700'}
                 size={50}
-                onPress={() => submitHandler(text)}
+                onPress={() => console.log('accep to edit')}
               />
             </TouchableOpacity>
 
@@ -74,7 +69,6 @@ const AddButton = ({submitHandler ,modalVisible ,setModalVisible ,onEditHandler}
           </View>
         </View>
       </Modal>
-
     </View>
   );
 };
@@ -101,15 +95,11 @@ const styles = StyleSheet.create({
   },
 
   addButtonContainer: {
-    flexDirection:'row',
-    justifyContent:'flex-end',
-    marginVertical:400,
-    marginHorizontal:30,
-    position:'relative',
-  
-    
- 
-  
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginVertical: 400,
+    marginHorizontal: 30,
+    position: 'relative',
   },
 });
-export default AddButton;
+export default EditModal;
