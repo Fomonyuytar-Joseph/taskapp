@@ -1,16 +1,16 @@
 /* eslint-disable */
 
-import {ADD_TODO, DELETE_TODO ,EDIT_TODO} from './actionsTypes';
+import {ADD_TODO, DELETE_TODO, EDIT_TODO} from './actionsTypes';
 
-export const addTodo =( content ,photoTaken ) => dispatch => {
+export const addTodo = (content, photoTaken) => dispatch => {
   let id = Math.random().toString();
   dispatch({
     type: ADD_TODO,
-    payload: {todo: content, id ,todoImage:photoTaken},
+    payload: {todo: content, id, todoImage: photoTaken},
   });
 };
 
-const add = content=>({name:'yaya'})
+
 
 export const deleteTodo = id => ({
   type: DELETE_TODO,
@@ -20,24 +20,9 @@ export const deleteTodo = id => ({
   },
 });
 
-export const editTodo =( content ,id ,photoTaken )=>  dispatch => {
-
-      
-
-    dispatch({
-
-      type:EDIT_TODO,
-      payload: { todo:content , id ,todoImage:photoTaken }
-       
-
-
-
-    }
-
-
-
-    )
-
-
-
-}
+export const editTodo = (content, id, photoTaken) => dispatch => {
+  dispatch({
+    type: EDIT_TODO,
+    payload: {todo: content, id, todoImage: photoTaken},
+  });
+};

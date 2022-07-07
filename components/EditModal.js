@@ -5,7 +5,7 @@ import {
   Modal,
   StyleSheet,
   TextInput,
-  Image
+  Image,
 } from 'react-native';
 import React, {useState} from 'react';
 import ImagePicker from 'react-native-image-crop-picker';
@@ -28,7 +28,7 @@ const EditModal = ({
       cropping: true,
     }).then(image => {
       console.log(image);
-       setTodoImage(image.path);
+      setTodoImage(image.path);
     });
   };
 
@@ -79,7 +79,7 @@ const EditModal = ({
                 color={'#09f700'}
                 size={50}
                 onPress={() => {
-                  editHandler(text, selectedTodo , todoImage);
+                  editHandler(text, selectedTodo, todoImage);
                 }}
               />
             </TouchableOpacity>
@@ -89,11 +89,11 @@ const EditModal = ({
             </TouchableOpacity>
 
             <View>
-            <Image
-              source={{uri: todoImage}}
-              style={{height: 100, width: 100}}
-            />
-          </View>
+              <Image
+                source={{uri: todoImage}}
+                style={{height: 100, width: 100}}
+              />
+            </View>
           </View>
         </View>
       </Modal>

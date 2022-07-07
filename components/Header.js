@@ -1,5 +1,5 @@
 /* eslint-disable */
-import {View, Text ,StyleSheet} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 
 const Header = ({headerText}) => {
@@ -10,19 +10,16 @@ const Header = ({headerText}) => {
   );
 };
 
-
 const styles = StyleSheet.create({
-    header: {
-      height: 80,
-      paddingTop: 38,
-      
-    },
-    title: {
-      textAlign: 'center',
-      color: '#30B0D9',
-      fontSize: 20,
-      fontWeight: 'bold',
-    
-    },
-  });
+  header: {
+    height: 80,
+    paddingTop: 38,
+  },
+  title: {
+    textAlign: 'center',
+    color: '#30B0D9',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+});
 export default Header;

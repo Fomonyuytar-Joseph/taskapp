@@ -8,33 +8,28 @@ const todos = (state = initialState, action) => {
   const {payload} = action;
   console.log(payload);
 
-
   switch (action.type) {
     case ADD_TODO:
-      return [{todo: payload.todo,id:payload.id ,todoImage:payload.todoImage}, ...state];
+      return [
+        {todo: payload.todo, id: payload.id, todoImage: payload.todoImage},
+        ...state,
+      ];
 
     case DELETE_TODO:
       const todos = state.filter(todo => todo.id != payload.id);
 
-      return [...todos]
+      return [...todos];
 
-      case EDIT_TODO:
+    case EDIT_TODO:
+      state.forEach(todo => {
+        if (todo.id === payload.id) {
+          todo.todo = payload.todo;
+          todo.todoImage = payload.todoImage;
+        }
+      });
+     
+      return state;
 
-         
-        state.forEach((todo) => {
-          if (todo.id === payload.id) {
-            
-            todo.todo = payload.todo;
-            todo.todoImage=payload.todoImage
-          }
-        });
-        // const updatedTodo =todos.map((todo) => {
-        //   todo.id === payload.id ? updatedTodo : todo;
-        //   })
-
-        
-          return state
-      
     default:
       return state;
   }

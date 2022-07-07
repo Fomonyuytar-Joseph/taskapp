@@ -10,25 +10,16 @@ import React from 'react';
 import Header from './components/Header';
 import AddButton from './components/AddButton';
 import Card from './components/Card';
-import CompletedTodoCard from './components/CompletedTodoCard';
 
-import {
-  SafeAreaView,
-  Text,
-  View,
-  FlatList,
-  StyleSheet,
-  Button,
-  Image,
-} from 'react-native';
+
+import {View, FlatList, StyleSheet} from 'react-native';
 import {useState} from 'react';
 import AddTodoButton from './components/AddTodoButton';
-// import { Provider } from 'react-redux';
-// import store from './redux/store';
+
 import {addTodo, deleteTodo, editTodo} from './redux/actions';
 import {useDispatch, useSelector} from 'react-redux';
 import EditModal from './components/EditModal';
-import ImagePicker from 'react-native-image-crop-picker';
+
 const App = () => {
   const dispatch = useDispatch();
 
@@ -38,55 +29,17 @@ const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [selectedTodo, setSelectedTodo] = useState([]);
- 
-
-  const [isEditing, setIsEditing] = useState(false);
-
-  console.log(selectedTodo.id);
-  // console.log(image)
-  // console.log(todos)
-  // console.log(completedTodos)
 
   const deleteHandler = key => {
     dispatch(deleteTodo(key));
   };
-  const submitHandler = (text , photoTaken ) => {
-    dispatch(addTodo(text ,photoTaken ));
-
+  const submitHandler = (text, photoTaken) => {
+    dispatch(addTodo(text, photoTaken));
   };
 
-  const editHandler = (text, id ,photoTaken) => {
-    dispatch(editTodo(text, id , photoTaken));
+  const editHandler = (text, id, photoTaken) => {
+    dispatch(editTodo(text, id, photoTaken));
   };
-
- 
-
-  // const closeEditModal = () => {
-  //   setIsEditing(false);
-  // };
-
-  // const submitCompleteHandler = todo => {
-  //   setCompletedTodos(prevTodos => {
-  //     return [todo, ...prevTodos];
-  //   });
-  // };
-  // const photo = {
-  //   uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/S%C3%A4ugende_H%C3%BCndin.JPG/330px-S%C3%A4ugende_H%C3%BCndin.JPG',
-  // };
-
-  if (isEditing) {
-    return (
-      <>
-        <Text>HI</Text>
-        <View>
-          <Button title="Photo" onPress={()=> console.log(hi)} />
-        </View>
-        <View>
-          <Image source={{uri: todoImage}} style={{height: 100, width: 100}} />
-        </View>
-      </>
-    );
-  }
 
   return (
     <>
@@ -134,8 +87,6 @@ const App = () => {
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
           setEditModalVisible={setEditModalVisible}
-          // photoHandler={photoHandler}
-          // todoImage={todoImage}
         />
       </View>
 
