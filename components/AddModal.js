@@ -81,7 +81,7 @@ const AddButton = ({submitHandler, modalVisible, setModalVisible}) => {
                 name="check-circle"
                 color={'#09f700'}
                 size={50}
-                onPress={() => submitHandler(text, todoImage)}
+                onPress={() => {submitHandler(text, todoImage),setModalVisible(false),setIsDisplay(false)}}
               />
             </TouchableOpacity>
 

@@ -100,6 +100,7 @@ const App = () => {
 const styles = StyleSheet.create({
   todoContainer: {
     flex: 4,
+    backgroundColor:'#e7edf0'
   },
   completedContainer: {
     flex: 4,
@@ -109,6 +110,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
     paddingHorizontal: 19,
+    backgroundColor:'#e7edf0'
   },
 });
 export default App;

@@ -20,6 +20,7 @@ const EditModal = ({
 }) => {
   const [text, setText] = useState('');
   const [todoImage, setTodoImage] = useState('');
+  const [isDisplay, setIsDisplay] = useState(false);
 
   const photoHandler = () => {
     ImagePicker.openPicker({
@@ -29,6 +30,7 @@ const EditModal = ({
     }).then(image => {
       console.log(image);
       setTodoImage(image.path);
+      setIsDisplay(true);
     });
   };
 
@@ -69,7 +71,7 @@ const EditModal = ({
                 name="cancel"
                 color={'red'}
                 size={50}
-                onPress={() => setEditModalVisible(false)}
+                onPress={() => {setEditModalVisible(false),setIsDisplay(true)}}
               />
             </TouchableOpacity>
 
@@ -88,12 +90,14 @@ const EditModal = ({
               <Icon name="image" color={'#30B0D9'} size={50} />
             </TouchableOpacity>
 
+            {isDisplay && (
             <View>
               <Image
                 source={{uri: todoImage}}
                 style={{height: 100, width: 100}}
               />
             </View>
+          )}
           </View>
         </View>
       </Modal>

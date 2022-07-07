@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     marginTop: 20,
+    backgroundColor:'#fff'
   },
   todoContainer: {
     width: '40%',
