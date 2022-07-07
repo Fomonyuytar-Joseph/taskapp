@@ -5,8 +5,10 @@ import {
   Modal,
   StyleSheet,
   TextInput,
+  Image
 } from 'react-native';
 import React, {useState} from 'react';
+import ImagePicker from 'react-native-image-crop-picker';
 
 import Icon from 'react-native-vector-icons//MaterialIcons';
 
@@ -17,6 +19,18 @@ const EditModal = ({
   selectedTodo,
 }) => {
   const [text, setText] = useState('');
+  const [todoImage, setTodoImage] = useState('');
+
+  const photoHandler = () => {
+    ImagePicker.openPicker({
+      width: 300,
+      height: 400,
+      cropping: true,
+    }).then(image => {
+      console.log(image);
+       setTodoImage(image.path);
+    });
+  };
 
   const changeHandler = val => {
     setText(val);
@@ -65,14 +79,21 @@ const EditModal = ({
                 color={'#09f700'}
                 size={50}
                 onPress={() => {
-                  editHandler(text, selectedTodo);
+                  editHandler(text, selectedTodo , todoImage);
                 }}
               />
             </TouchableOpacity>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={photoHandler}>
               <Icon name="image" color={'#30B0D9'} size={50} />
             </TouchableOpacity>
+
+            <View>
+            <Image
+              source={{uri: todoImage}}
+              style={{height: 100, width: 100}}
+            />
+          </View>
           </View>
         </View>
       </Modal>

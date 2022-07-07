@@ -11,7 +11,7 @@ const todos = (state = initialState, action) => {
 
   switch (action.type) {
     case ADD_TODO:
-      return [{todo: payload.todo,id:payload.id}, ...state];
+      return [{todo: payload.todo,id:payload.id ,todoImage:payload.todoImage}, ...state];
 
     case DELETE_TODO:
       const todos = state.filter(todo => todo.id != payload.id);
@@ -25,6 +25,7 @@ const todos = (state = initialState, action) => {
           if (todo.id === payload.id) {
             
             todo.todo = payload.todo;
+            todo.todoImage=payload.todoImage
           }
         });
         // const updatedTodo =todos.map((todo) => {

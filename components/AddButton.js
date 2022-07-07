@@ -8,6 +8,7 @@ import {
   Image,
 } from 'react-native';
 import React, {useState} from 'react';
+import ImagePicker from 'react-native-image-crop-picker';
 
 import Icon from 'react-native-vector-icons//MaterialIcons';
 
@@ -15,10 +16,22 @@ const AddButton = ({
   submitHandler,
   modalVisible,
   setModalVisible,
-  photoHandler,
-  todoImage,
+ 
+
 }) => {
   const [text, setText] = useState('');
+  const [todoImage, setTodoImage] = useState('');
+
+  const photoHandler = () => {
+    ImagePicker.openPicker({
+      width: 300,
+      height: 400,
+      cropping: true,
+    }).then(image => {
+      console.log(image);
+       setTodoImage(image.path);
+    });
+  };
 
   const changeHandler = val => {
     setText(val);
@@ -66,11 +79,11 @@ const AddButton = ({
                 name="check-circle"
                 color={'#09f700'}
                 size={50}
-                onPress={() => submitHandler(text)}
+                onPress={() => submitHandler(text ,todoImage)}
               />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={photoHandler}>
+            <TouchableOpacity onPress={ photoHandler }>
               <Icon name="image" color={'#30B0D9'} size={50} />
             </TouchableOpacity>
           </View>
@@ -81,6 +94,8 @@ const AddButton = ({
               style={{height: 100, width: 100}}
             />
           </View>
+
+          
         </View>
       </Modal>
     </View>

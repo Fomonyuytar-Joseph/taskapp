@@ -7,11 +7,10 @@ import Icon from 'react-native-vector-icons//MaterialIcons';
 const Card = ({
   item,
   setEditModalVisible,
-  editModalVisible,
-  editHandler,
+ 
   setSelectedTodo,
   deleteHandler,
-  todoImage
+ 
 
 }) => {
   const data = [
@@ -36,7 +35,7 @@ const Card = ({
       </View>
 
       <View>
-        <Image  source={{uri: todoImage}}
+        <Image  source={{uri: item.todoImage}}
               style={{height: 100, width: 100 ,borderRadius:10}} />
       </View>
 
@@ -66,7 +65,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   todoContainer: {
-    width: '50%',
+    width: '40%',
+    
   },
 });
 export default Card;

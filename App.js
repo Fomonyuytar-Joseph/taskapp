@@ -38,7 +38,7 @@ const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [selectedTodo, setSelectedTodo] = useState([]);
-  const [todoImage, setTodoImage] = useState('');
+ 
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -50,24 +50,16 @@ const App = () => {
   const deleteHandler = key => {
     dispatch(deleteTodo(key));
   };
-  const submitHandler = text => {
-    dispatch(addTodo(text));
+  const submitHandler = (text , photoTaken ) => {
+    dispatch(addTodo(text ,photoTaken ));
+
   };
 
-  const editHandler = (text, id) => {
-    dispatch(editTodo(text, id));
+  const editHandler = (text, id ,photoTaken) => {
+    dispatch(editTodo(text, id , photoTaken));
   };
 
-  const photoHandler = () => {
-    ImagePicker.openPicker({
-      width: 300,
-      height: 400,
-      cropping: true,
-    }).then(image => {
-      console.log(image);
-      setTodoImage(image.path);
-    });
-  };
+ 
 
   // const closeEditModal = () => {
   //   setIsEditing(false);
@@ -78,16 +70,16 @@ const App = () => {
   //     return [todo, ...prevTodos];
   //   });
   // };
-  const photo = {
-    uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/S%C3%A4ugende_H%C3%BCndin.JPG/330px-S%C3%A4ugende_H%C3%BCndin.JPG',
-  };
+  // const photo = {
+  //   uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/S%C3%A4ugende_H%C3%BCndin.JPG/330px-S%C3%A4ugende_H%C3%BCndin.JPG',
+  // };
 
   if (isEditing) {
     return (
       <>
         <Text>HI</Text>
         <View>
-          <Button title="Photo" onPress={photoHandler} />
+          <Button title="Photo" onPress={()=> console.log(hi)} />
         </View>
         <View>
           <Image source={{uri: todoImage}} style={{height: 100, width: 100}} />
@@ -118,7 +110,7 @@ const App = () => {
                 setEditModalVisible={setEditModalVisible}
                 editHandler={editHandler}
                 setSelectedTodo={setSelectedTodo}
-                todoImage={todoImage}
+                // todoImage={todoImage}
 
                 // submitCompleteHandler={submitCompleteHandler}
               />
@@ -142,8 +134,8 @@ const App = () => {
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
           setEditModalVisible={setEditModalVisible}
-          photoHandler={photoHandler}
-          todoImage={todoImage}
+          // photoHandler={photoHandler}
+          // todoImage={todoImage}
         />
       </View>
 
