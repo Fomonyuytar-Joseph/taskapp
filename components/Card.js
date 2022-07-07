@@ -4,6 +4,7 @@ import React from 'react';
 import RadioButtonRN from 'radio-buttons-react-native';
 import Icon from 'react-native-vector-icons//MaterialIcons';
 import {useState} from 'react';
+import CheckBox from './Checkbox';
 
 const Card = ({
   item,
@@ -13,6 +14,7 @@ const Card = ({
   deleteHandler,
 }) => {
   const [isActive, setIsActive] = useState(false);
+  const [task ,setTask] = useState(false)
 
   const data = [
     {
@@ -23,27 +25,27 @@ const Card = ({
   return (
     <View style={styles.container}>
       <View style={styles.todoContainer}>
-        <RadioButtonRN
-          animationTypes={['rotate']}
-          data={data}
-          selectedBtn={e => setIsActive(true)}
-          box={false}
-          icon={<Icon name="check-circle" size={25} color="#949494" />}
-          textStyle={{
-            textDecorationLine: isActive ? 'line-through' : '',
-            textDecorationStyle: isActive ? 'solid' : '',
-          }}
-        />
+       <CheckBox
+       onPress={()=> setTask(!task)}
+       title={item.todo}
+       isChecked={task}
+       
+       
+       
+       />
       </View>
 
-      <View>
+      <View style={styles.iconContainer}>
+
+      <View style={{padding:5}}>
         <Image
           source={{uri: item.todoImage}}
-          style={{height: 100, width: 100, borderRadius: 10}}
+          style={{height: 30, width: 30, borderRadius: 10}}
         />
       </View>
 
-      <View>
+      <View style={{padding:5}}>
+
         <TouchableOpacity
           onPress={() => {
             setEditModalVisible(true), setSelectedTodo(item);
@@ -52,9 +54,13 @@ const Card = ({
         </TouchableOpacity>
       </View>
 
+      <View style={{padding:5}}>
       <TouchableOpacity onPress={() => deleteHandler(item.id)}>
         <Icon name="delete" color={'#f70000'} size={30} />
       </TouchableOpacity>
+      </View>
+
+      </View>
     </View>
   );
 };
@@ -62,13 +68,32 @@ const Card = ({
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 20,
-    backgroundColor:'#fff'
-  },
+    marginTop: 10,
+    backgroundColor:'#fff',
+    borderRadius:10,
+    marginLeft:10,
+    marginRight:10,
+    paddingTop:10,
+    paddingBottom: 20,
+    elevation:2,
+    marginBottom:5
+    
+    
+    },
   todoContainer: {
     width: '40%',
   },
+  iconContainer:{
+   flexDirection:'row',
+  justifyContent:'space-between',
+  alignItems:'center',
+  margin:5
+  
+  
+
+
+  }
 });
 export default Card;
