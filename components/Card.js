@@ -11,6 +11,8 @@ const Card = ({
   editHandler,
   setSelectedTodo,
   deleteHandler,
+  todoImage
+
 }) => {
   const data = [
     {
@@ -34,6 +36,11 @@ const Card = ({
       </View>
 
       <View>
+        <Image  source={{uri: todoImage}}
+              style={{height: 100, width: 100 ,borderRadius:10}} />
+      </View>
+
+      <View>
         <TouchableOpacity
           onPress={() => {
             setEditModalVisible(true), setSelectedTodo(item);
@@ -46,7 +53,7 @@ const Card = ({
         <Icon name="delete" color={'#f70000'} size={30} />
       </TouchableOpacity>
 
-      <View></View>
+     
     </View>
   );
 };
@@ -59,7 +66,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   todoContainer: {
-    width: '65%',
+    width: '50%',
   },
 });
 export default Card;
