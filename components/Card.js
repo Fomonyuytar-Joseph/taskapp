@@ -12,7 +12,9 @@ const Card = ({
   deleteHandler,
  
 
-}) => {
+}) => {isAc
+
+  const [isActive, setIsActive] = useState(true);
   const data = [
     {
       label: item.todo,
@@ -31,6 +33,10 @@ const Card = ({
           // boxActiveBgColor='#e9dee2'
 
           icon={<Icon name="check-circle" size={25} color="#949494" />}
+         textStyle={{textDecorationLine: 'line-through', 
+         textDecorationStyle: 'solid'}}
+
+          
         />
       </View>
 
@@ -63,9 +69,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     marginTop: 20,
+    
   },
   todoContainer: {
     width: '40%',
+    
+    
     
   },
 });

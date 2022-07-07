@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
       color: '#30B0D9',
       fontSize: 20,
       fontWeight: 'bold',
+    
     },
   });
 export default Header;
