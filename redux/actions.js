@@ -6,6 +6,7 @@ export const addTodo = (content, photoTaken) => dispatch => {
   let id = Math.random().toString();
   dispatch({
     type: ADD_TODO,
+    
     payload: {todo: content, id, todoImage: photoTaken},
   });
 };

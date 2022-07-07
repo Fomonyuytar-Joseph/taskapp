@@ -8,7 +8,7 @@
 /* eslint-disable */
 import React from 'react';
 import Header from './components/Header';
-import AddButton from './components/AddButton';
+import AddButton from './components/AddModal';
 import Card from './components/Card';
 
 
