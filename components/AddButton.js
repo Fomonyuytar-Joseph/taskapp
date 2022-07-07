@@ -20,7 +20,8 @@ const AddButton = ({
 
 }) => {
   const [text, setText] = useState('');
-  const [todoImage, setTodoImage] = useState('');
+  const [todoImage, setTodoImage] = useState('https://www.pngmagic.com/product_images/solid-light-grey-background.jpg');
+  const [isDisplay, setIsDisplay] = useState(false);
 
   const photoHandler = () => {
     ImagePicker.openPicker({
@@ -30,9 +31,12 @@ const AddButton = ({
     }).then(image => {
       console.log(image);
        setTodoImage(image.path);
+       setIsDisplay(true)
     });
   };
-
+   const Message =()=>{
+    setIsDisplay(true)
+   }
   const changeHandler = val => {
     setText(val);
   };
@@ -70,7 +74,7 @@ const AddButton = ({
                 name="cancel"
                 color={'red'}
                 size={50}
-                onPress={() => setModalVisible(false)}
+                onPress={() => {setModalVisible(false) , setIsDisplay(false)} }
               />
             </TouchableOpacity>
 
@@ -83,17 +87,18 @@ const AddButton = ({
               />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={ photoHandler }>
+            <TouchableOpacity onPress={photoHandler   }>
               <Icon name="image" color={'#30B0D9'} size={50} />
             </TouchableOpacity>
           </View>
 
-          <View>
+        {isDisplay &&  <View >
             <Image
               source={{uri: todoImage}}
               style={{height: 100, width: 100}}
             />
           </View>
+          }
 
           
         </View>

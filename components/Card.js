@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import React from 'react';
 import RadioButtonRN from 'radio-buttons-react-native';
 import Icon from 'react-native-vector-icons//MaterialIcons';
+import { useState } from 'react';
 
 const Card = ({
   item,
@@ -12,9 +13,10 @@ const Card = ({
   deleteHandler,
  
 
-}) => {isAc
+}) => {
 
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
+  
   const data = [
     {
       label: item.todo,
@@ -27,14 +29,14 @@ const Card = ({
         <RadioButtonRN
           //  animationTypes={['rotate']}
           data={data}
-          selectedBtn={e => console.log(e)}
+          selectedBtn={e => setIsActive(true)}
           box={false}
           // textStyle={ textDecoration='line-through'  }
           // boxActiveBgColor='#e9dee2'
 
           icon={<Icon name="check-circle" size={25} color="#949494" />}
-         textStyle={{textDecorationLine: 'line-through', 
-         textDecorationStyle: 'solid'}}
+         textStyle={{textDecorationLine: isActive ? 'line-through' : '', 
+         textDecorationStyle:isActive ?  'solid' :''}}
 
           
         />
