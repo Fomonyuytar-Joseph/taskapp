@@ -79,6 +79,7 @@ const App = () => {
                 setSelectedTodo={setSelectedTodo}
                 isDisplay={isDisplay}
                 setIsDisplay={setIsDisplay}
+                setEditText={setEditText}
                 // todoImage={todoImage}
 
                 // submitCompleteHandler={submitCompleteHandler}

@@ -14,15 +14,12 @@ const Card = ({
    setIsDisplay,
   setSelectedTodo,
   deleteHandler,
+  setEditText
 }) => {
   const [isActive, setIsActive] = useState(false);
   const [task ,setTask] = useState(false)
 
-  const data = [
-    {
-      label: item.todo,
-    },
-  ];
+  
 
   return (
     <View style={styles.container}>
@@ -53,7 +50,7 @@ const Card = ({
 
         <TouchableOpacity
           onPress={() => {
-            setEditModalVisible(true), setSelectedTodo(item);
+            setEditModalVisible(true), setSelectedTodo(item),setEditText(item.todo)
           }}>
           <Icon name="edit" color={'#00007c'} size={30} />
         </TouchableOpacity>
