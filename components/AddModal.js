@@ -102,7 +102,7 @@ const AddButton = ({
             </View>
 
             {isDisplay && (
-              <View>
+              <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center' ,paddingTop:5}}>
                 <Image
                   source={{uri: todoImage}}
                   style={{height: 100, width: 100}}

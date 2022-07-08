@@ -100,7 +100,7 @@ const EditModal = ({
           </View>
           
           {editIsDisplay && (
-              <View>
+              <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
                 <Image
                   source={{uri: todoImage}}
                   style={{height: 100, width: 100}}
