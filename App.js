@@ -19,6 +19,10 @@ import AddTodoButton from './components/AddTodoButton';
 import {addTodo, deleteTodo, editTodo} from './redux/actions';
 import {useDispatch, useSelector} from 'react-redux';
 import EditModal from './components/EditModal';
+import { LogBox } from 'react-native';
+
+
+LogBox.ignoreLogs(['source.uri should not be an empty string']); // Ignore log notification by message
 
 const App = () => {
   const dispatch = useDispatch();
@@ -29,8 +33,14 @@ const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [selectedTodo, setSelectedTodo] = useState([]);
+
   const [text, setText] = useState('');
   const [isDisplay, setIsDisplay] = useState(false);
+
+  const [editText ,setEditText]= useState('')
+  const [editIsDisplay, setEditIsDisplay] = useState(false);
+
+  
 
   const deleteHandler = key => {
     dispatch(deleteTodo(key));
@@ -42,6 +52,7 @@ const App = () => {
 
   const editHandler = (text, id, photoTaken) => {
     dispatch(editTodo(text, id, photoTaken));
+    setEditText('')
   };
 
   return (
@@ -83,6 +94,10 @@ const App = () => {
           setEditModalVisible={setEditModalVisible}
           editHandler={editHandler}
           selectedTodo={selectedTodo.id}
+          editIsDisplay={editIsDisplay}
+          setEditIsDisplay={setEditIsDisplay}
+          editText={editText}
+          setEditText={setEditText}
         />
       </View>
 

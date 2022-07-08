@@ -6,10 +6,12 @@ import Icon from 'react-native-vector-icons//MaterialIcons';
 import {useState} from 'react';
 import CheckBox from './Checkbox';
 
+
 const Card = ({
   item,
   setEditModalVisible,
    isDisplay,
+   setIsDisplay,
   setSelectedTodo,
   deleteHandler,
 }) => {
@@ -36,13 +38,16 @@ const Card = ({
       </View>
 
       <View style={styles.iconContainer}>
+   
+    <View style={{padding:5}}>
+      <Image
+        source={{uri: item.todoImage}}
+        style={{height: 30, width: 30, borderRadius: 10}}
+      />
+    </View>
 
-      <View style={{padding:5}}>
-        <Image
-          source={{uri: item.todoImage}}
-          style={{height: 30, width: 30, borderRadius: 10}}
-        />
-      </View>
+    
+   
 
       <View style={{padding:5}}>
 

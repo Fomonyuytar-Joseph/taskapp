@@ -14,7 +14,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 
 import Icon from 'react-native-vector-icons//MaterialIcons';
 
-const AddButton = ({submitHandler, modalVisible, setModalVisible ,text ,setText ,isDisplay ,setIsDisplay}) => {
+const AddButton = ({submitHandler, modalVisible, setModalVisible ,text ,setText ,isDisplay ,setIsDisplay } ) => {
   
   const [todoImage, setTodoImage] = useState(
     '',
@@ -84,7 +84,7 @@ const AddButton = ({submitHandler, modalVisible, setModalVisible ,text ,setText 
                 name="check-circle"
                 color={'#09f700'}
                 size={50}
-                onPress={() => {submitHandler(text, todoImage),setModalVisible(false),setIsDisplay(false)}}
+                onPress={() => {submitHandler(text, todoImage),setModalVisible(false),setIsDisplay(false) ,setTodoImage('')}}
               />
             </TouchableOpacity>
 

@@ -17,10 +17,14 @@ const EditModal = ({
   setEditModalVisible,
   editHandler,
   selectedTodo,
+  editIsDisplay,
+  setEditIsDisplay,
+  editText,
+  setEditText,
 }) => {
-  const [text, setText] = useState('');
+  
   const [todoImage, setTodoImage] = useState('');
-  const [isDisplay, setIsDisplay] = useState(false);
+  
 
   const photoHandler = () => {
     ImagePicker.openPicker({
@@ -30,12 +34,12 @@ const EditModal = ({
     }).then(image => {
       console.log(image);
       setTodoImage(image.path);
-      setIsDisplay(true);
+      setEditIsDisplay(true);
     });
   };
 
   const changeHandler = val => {
-    setText(val);
+    setEditText(val);
   };
 
   return (
@@ -57,7 +61,7 @@ const EditModal = ({
             <View>
               <TextInput
                 onChangeText={changeHandler}
-                value={text}
+                value={editText}
                 placeholder="Edit Todo"
                 style={styles.input}
                 autoFocus={true}
@@ -71,7 +75,7 @@ const EditModal = ({
                 name="cancel"
                 color={'red'}
                 size={50}
-                onPress={() => {setEditModalVisible(false),setIsDisplay(true)}}
+                onPress={() => {setEditModalVisible(false),setEditIsDisplay(true)}}
               />
             </TouchableOpacity>
 
@@ -81,7 +85,10 @@ const EditModal = ({
                 color={'#09f700'}
                 size={50}
                 onPress={() => {
-                  editHandler(text, selectedTodo, todoImage);
+                  editHandler(editText, selectedTodo, todoImage),
+                  setEditModalVisible(false),
+                  setEditIsDisplay(false),
+                  setTodoImage('')
                 }}
               />
             </TouchableOpacity>
@@ -90,7 +97,7 @@ const EditModal = ({
               <Icon name="image" color={'#30B0D9'} size={50} />
             </TouchableOpacity>
 
-            {isDisplay && (
+            { editIsDisplay && (
             <View>
               <Image
                 source={{uri: todoImage}}
