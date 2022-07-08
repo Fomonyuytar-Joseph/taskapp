@@ -30,6 +30,7 @@ const App = () => {
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [selectedTodo, setSelectedTodo] = useState([]);
   const [text, setText] = useState('');
+  const [isDisplay, setIsDisplay] = useState(false);
 
   const deleteHandler = key => {
     dispatch(deleteTodo(key));
@@ -65,6 +66,8 @@ const App = () => {
                 setEditModalVisible={setEditModalVisible}
                 editHandler={editHandler}
                 setSelectedTodo={setSelectedTodo}
+                isDisplay={isDisplay}
+                setIsDisplay={setIsDisplay}
                 // todoImage={todoImage}
 
                 // submitCompleteHandler={submitCompleteHandler}
@@ -91,6 +94,8 @@ const App = () => {
           setEditModalVisible={setEditModalVisible}
           text={text}
           setText={setText}
+          isDisplay={isDisplay}
+          setIsDisplay={setIsDisplay}
         />
       </View>
 

@@ -9,7 +9,7 @@ import CheckBox from './Checkbox';
 const Card = ({
   item,
   setEditModalVisible,
-
+   isDisplay,
   setSelectedTodo,
   deleteHandler,
 }) => {

@@ -14,12 +14,12 @@ import ImagePicker from 'react-native-image-crop-picker';
 
 import Icon from 'react-native-vector-icons//MaterialIcons';
 
-const AddButton = ({submitHandler, modalVisible, setModalVisible ,text ,setText}) => {
+const AddButton = ({submitHandler, modalVisible, setModalVisible ,text ,setText ,isDisplay ,setIsDisplay}) => {
   
   const [todoImage, setTodoImage] = useState(
-    'https://www.pngmagic.com/product_images/solid-light-grey-background.jpg',
+    '',
   );
-  const [isDisplay, setIsDisplay] = useState(false);
+  
 
   const photoHandler = () => {
     ImagePicker.openPicker({
