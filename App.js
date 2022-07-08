@@ -29,12 +29,14 @@ const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [selectedTodo, setSelectedTodo] = useState([]);
+  const [text, setText] = useState('');
 
   const deleteHandler = key => {
     dispatch(deleteTodo(key));
   };
   const submitHandler = (text, photoTaken) => {
     dispatch(addTodo(text, photoTaken));
+    setText('')
   };
 
   const editHandler = (text, id, photoTaken) => {
@@ -87,6 +89,8 @@ const App = () => {
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
           setEditModalVisible={setEditModalVisible}
+          text={text}
+          setText={setText}
         />
       </View>
 

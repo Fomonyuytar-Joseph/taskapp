@@ -6,14 +6,16 @@ import {
   StyleSheet,
   TextInput,
   Image,
+  TouchableWithoutFeedback
+
 } from 'react-native';
 import React, {useState} from 'react';
 import ImagePicker from 'react-native-image-crop-picker';
 
 import Icon from 'react-native-vector-icons//MaterialIcons';
 
-const AddButton = ({submitHandler, modalVisible, setModalVisible}) => {
-  const [text, setText] = useState('');
+const AddButton = ({submitHandler, modalVisible, setModalVisible ,text ,setText}) => {
+  
   const [todoImage, setTodoImage] = useState(
     'https://www.pngmagic.com/product_images/solid-light-grey-background.jpg',
   );
@@ -38,6 +40,7 @@ const AddButton = ({submitHandler, modalVisible, setModalVisible}) => {
   };
 
   return (
+    <TouchableWithoutFeedback onPress={()=> keyboard.dismiss()}>
     <View>
       <Modal
         visible={modalVisible}
@@ -101,6 +104,7 @@ const AddButton = ({submitHandler, modalVisible, setModalVisible}) => {
         </View>
       </Modal>
     </View>
+    </TouchableWithoutFeedback>
   );
 };
 
