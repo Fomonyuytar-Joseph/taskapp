@@ -8,7 +8,7 @@ import {
   Image,
   TouchableWithoutFeedback,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState ,useRef}  from 'react';
 import ImagePicker from 'react-native-image-crop-picker';
 
 import Icon from 'react-native-vector-icons//MaterialIcons';
@@ -42,6 +42,8 @@ const AddButton = ({
     setText(val);
   };
 
+
+  const inputRef = useRef();
   return (
     <TouchableWithoutFeedback onPress={() => keyboard.dismiss()}>
       <View>
@@ -52,7 +54,7 @@ const AddButton = ({
           onBackdropPress={() => setModalVisible(false)}>
           <View
             style={{
-              borderRadius: 20,
+              borderRadius: 10,
               height: '60%',
               marginTop: 'auto',
               backgroundColor: '#f5f5f5',
@@ -66,6 +68,8 @@ const AddButton = ({
                   placeholder="Add Todo"
                   style={styles.input}
                   autoFocus={true}
+                  ref={inputRef}
+                  onLayout={()=> inputRef.current.focus()}
                 />
               </View>
             </View>

@@ -1,5 +1,5 @@
 /* eslint-disable */
-import 'react-native-gesture-handler';
+
 import * as React from 'react'
 import App from './App'
 import store from './redux/store'
