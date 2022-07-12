@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons//MaterialIcons';
 
 const AddTodoButton = ({setModalVisible}) => {
   return (
-    <View  >
+    <View    >
     <TouchableOpacity onPress={() => setModalVisible(true)}>
       <Icon name="add-circle" size={50} color={'#30B0D9'} />
     </TouchableOpacity>

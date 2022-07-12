@@ -64,7 +64,7 @@ const App = () => {
         <View></View>
 
         {/* List of Todos */}
-        <View>
+        <View style={{zIndex:3}}>
           <FlatList
             data={todos}
             keyExtractor={(item, index) => index}
@@ -135,7 +135,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
     paddingHorizontal: 19,
-    backgroundColor:'#e7edf0'
+    backgroundColor:'#e7edf0',
+    zIndex:-1,
+    
+    
+    
   },
 });
 export default App;

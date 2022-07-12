@@ -83,13 +83,17 @@ const styles = StyleSheet.create({
     marginRight:10,
     paddingTop:10,
     paddingBottom: 10,
-    elevation:2,
-    marginBottom:5
+    elevation:5,
+    marginBottom:5,
+    zIndex:2,
+    
+    
     
     
     },
   todoContainer: {
     width: '40%',
+    zIndex:2,
   },
   iconContainer:{
    flexDirection:'row',
