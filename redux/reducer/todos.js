@@ -18,17 +18,20 @@ const todos = (state = initialState, action) => {
     case DELETE_TODO:
       const todos = state.filter(todo => todo.id != payload.id);
 
-      return [...todos];
-
+      return [...todos]; 
+      
     case EDIT_TODO:
-      state.forEach(todo => {
+      let editedTodos = state.map((todo) => {
         if (todo.id === payload.id) {
           todo.todo = payload.todo;
           todo.todoImage = payload.todoImage;
         }
+        return todo
       });
+
+      return editedTodos
      
-      return state;
+      
 
     default:
       return state;

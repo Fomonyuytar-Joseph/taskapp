@@ -1,7 +1,7 @@
 /* eslint-disable */
 import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import React , { useRef } from 'react';
-import RadioButtonRN from 'radio-buttons-react-native';
+
 import Icon from 'react-native-vector-icons//MaterialIcons';
 import {useState} from 'react';
 import CheckBox from './Checkbox';
@@ -16,7 +16,7 @@ const Card = ({
   deleteHandler,
   setEditText
 }) => {
-  const [isActive, setIsActive] = useState(false);
+ 
   const [task ,setTask] = useState(false)
 
   
@@ -83,17 +83,14 @@ const styles = StyleSheet.create({
     marginRight:10,
     paddingTop:10,
     paddingBottom: 10,
-    elevation:5,
+    elevation:2,
     marginBottom:5,
-    zIndex:2,
-    
-    
+    zIndex:1
     
     
     },
   todoContainer: {
     width: '40%',
-    zIndex:2,
   },
   iconContainer:{
    flexDirection:'row',
