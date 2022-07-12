@@ -1,6 +1,7 @@
 /* eslint-disable */
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
+import {FontFamily} from '../assets/utils/Commonstyles/index'
 
 const Header = ({headerText}) => {
   return (
@@ -18,8 +19,9 @@ const styles = StyleSheet.create({
   title: {
     textAlign: 'center',
     color: '#30B0D9',
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 30,
+    
+    fontFamily:FontFamily.bold
   },
 });
 export default Header;
