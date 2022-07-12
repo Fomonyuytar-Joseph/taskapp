@@ -42,7 +42,7 @@ const Card = ({
     <View style={{padding:5}}>
       <Image
         source={{uri: item.todoImage}}
-        style={{height: 30, width: 30, borderRadius: 10}}
+        style={{height: 50, width: 50, borderRadius: 10}}
       />
     </View>
 
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     marginLeft:10,
     marginRight:10,
     paddingTop:10,
-    paddingBottom: 20,
+    paddingBottom: 10,
     elevation:2,
     marginBottom:5
     
