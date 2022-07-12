@@ -24,7 +24,7 @@ const Card = ({
   
 
   return (
-    <TouchableOpacity >
+    
     <View style={styles.container}>
       <View style={styles.todoContainer}>
        <CheckBox
@@ -67,7 +67,7 @@ const Card = ({
 
       </View>
     </View>
-    </TouchableOpacity>
+    
   );
 };
 
