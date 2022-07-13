@@ -67,6 +67,7 @@ const App = () => {
         {/* List of Todos */}
         <View style={ { zIndex:3 } }>
           <FlatList
+            scrollEnabled={true}
             data={todos}
             keyExtractor={(item, index) => index}
             renderItem={({item, index}) => (
