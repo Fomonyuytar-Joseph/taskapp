@@ -8,7 +8,7 @@
 /* eslint-disable */
 import React from 'react';
 import Header from './components/Header';
-import AddButton from './components/AddModal';
+import AddModal from './components/AddModal';
 import Card from './components/Card';
 
 
@@ -62,10 +62,10 @@ const App = () => {
         {/* Display a Header */}
         <Header headerText={'Todo App'} />
 
-        <View></View>
+        
 
         {/* List of Todos */}
-        <View style={{zIndex:3}}>
+        <View style={ { zIndex:3 } }>
           <FlatList
             data={todos}
             keyExtractor={(item, index) => index}
@@ -103,8 +103,8 @@ const App = () => {
         />
       </View>
 
-      <View>
-        <AddButton
+      <View >
+        <AddModal
           submitHandler={submitHandler}
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}

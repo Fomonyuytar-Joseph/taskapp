@@ -13,7 +13,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 
 import Icon from 'react-native-vector-icons//MaterialIcons';
 
-const AddButton = ({
+const AddModal = ({
   submitHandler,
   modalVisible,
   setModalVisible,
@@ -149,4 +149,4 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
 });
-export default AddButton;
+export default AddModal;

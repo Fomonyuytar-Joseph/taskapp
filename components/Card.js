@@ -85,12 +85,15 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     elevation:2,
     marginBottom:5,
-    zIndex:1
+    zIndex:2
     
     
     },
   todoContainer: {
     width: '40%',
+    zIndex:2
+
+
   },
   iconContainer:{
    flexDirection:'row',
