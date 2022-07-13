@@ -126,18 +126,17 @@ const App = () => {
 const styles = StyleSheet.create({
   todoContainer: {
     flex: 4,
-    backgroundColor:'#e7edf0'
+   
   },
-  completedContainer: {
-    flex: 4,
-  },
+  
   addTodoContainer: {
-    flex: 1.5,
+    
     flexDirection: 'row',
     justifyContent: 'flex-end',
     paddingHorizontal: 19,
-    backgroundColor:'#e7edf0',
-    zIndex:-1,
+    // backgroundColor:'#e7edf0',
+    zIndex:1,
+    bottom:100
     
     
     
