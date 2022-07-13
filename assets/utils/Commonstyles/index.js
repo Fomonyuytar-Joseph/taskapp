@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 
-const FontFamily={
+const UbuntuFontFamily={
 
     bold:'Ubuntu-Bold',
     boldItalic:'Ubuntu-BoldItalic',
@@ -14,4 +14,13 @@ const FontFamily={
 
 }
 
-export {FontFamily}
+const ComicFontFamily={
+    bold:'ComicNeue-Bold',
+    boldItalic:'ComicNeue-BoldItalic',
+    regular:'ComicNeue-Regular',
+    light:'ComicNeue-Regular',
+    italic:'ComicNeue-Italic'
+
+}
+
+export {UbuntuFontFamily ,ComicFontFamily}

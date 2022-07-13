@@ -61,6 +61,12 @@
 		<string>Ubuntu-Medium.ttf</string>
 		<string>Ubuntu-MediumItalic.ttf</string>
 		<string>Ubuntu-Regular.ttf</string>
+		<string>ComicNeue-Bold.ttf</string>
+		<string>ComicNeue-BoldItalic.ttf</string>
+		<string>ComicNeue-Italic.ttf</string>
+		<string>ComicNeue-Light.ttf</string>
+		<string>ComicNeue-LightItalic.ttf</string>
+		<string>ComicNeue-Regular.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -20,7 +20,7 @@ import {addTodo, deleteTodo, editTodo} from './redux/actions';
 import {useDispatch, useSelector} from 'react-redux';
 import EditModal from './components/EditModal';
 import { LogBox } from 'react-native';
-import {FontFamily} from './assets/utils/Commonstyles/index'
+// import {FontFamily} from './assets/utils/Commonstyles/index'
 
 
 LogBox.ignoreLogs(['source.uri should not be an empty string']); // Ignore log notification by message

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
-import {FontFamily} from '../assets/utils/Commonstyles/index'
+import {UbuntuFontFamily} from '../assets/utils/Commonstyles/index'
 
 const Header = ({headerText}) => {
   return (
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     color: '#30B0D9',
     fontSize: 30,
     
-    fontFamily:FontFamily.bold
+    fontFamily:UbuntuFontFamily.bold
   },
 });
 export default Header;

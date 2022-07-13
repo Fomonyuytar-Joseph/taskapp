@@ -2,6 +2,7 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Icon from 'react-native-vector-icons//MaterialIcons';
+import {ComicFontFamily} from '../assets/utils/Commonstyles/index'
 
 
 const CheckBox = (props) => {
@@ -36,6 +37,7 @@ const styles = StyleSheet.create({
 		fontSize: 16,
 		color: "#000",
 		marginLeft: 5,
-		fontWeight: "600",
+		
+		fontFamily:ComicFontFamily.regular
 	},
 });
